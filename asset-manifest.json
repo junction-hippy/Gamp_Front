@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/junction_hippy_front/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/junction_hippy_front/static/js/main.f275d8b1.chunk.js",
+    "main.js.map": "/junction_hippy_front/static/js/main.f275d8b1.chunk.js.map",
+    "runtime-main.js": "/junction_hippy_front/static/js/runtime-main.19f36a97.js",
+    "runtime-main.js.map": "/junction_hippy_front/static/js/runtime-main.19f36a97.js.map",
+    "static/js/2.6560a47a.chunk.js": "/junction_hippy_front/static/js/2.6560a47a.chunk.js",
+    "static/js/2.6560a47a.chunk.js.map": "/junction_hippy_front/static/js/2.6560a47a.chunk.js.map",
+    "index.html": "/junction_hippy_front/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/junction_hippy_front/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.6560a47a.chunk.js.LICENSE.txt": "/junction_hippy_front/static/js/2.6560a47a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.19f36a97.js",
+    "static/js/2.6560a47a.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.f275d8b1.chunk.js"
+  ]
+}
