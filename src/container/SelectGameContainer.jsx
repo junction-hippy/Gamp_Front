@@ -6,27 +6,36 @@ import CustomModal from '../components/CustomModal';
 import ModalContent from '../components/ModalContent';
 import SelectGame from '../components/SelectGame';
 import { getGameList } from '../lib/api/gameList';
+import AmongUS from '../assets/images/AmongUs.webp';
+import LostArk from '../assets/images/Lost Ark.jpeg';
+import Minecraft from '../assets/images/Minecraft.webp';
+import StardewValley from '../assets/images/Stardew Valley.webp';
+import ValheimGuide from '../assets/images/Valheim guide.webp';
 
 const temp = [
   {
     url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
-    name: '이것은 롤입니다.',
+    name: 'League of Legend',
   },
   {
-    url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
-    name: '이것은 롤입니다.',
+    url: AmongUS,
+    name: 'Among Us',
   },
   {
-    url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
-    name: '이것은 롤입니다.',
+    url: LostArk,
+    name: 'Lost Ark',
   },
   {
-    url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
-    name: '이것은 롤입니다.',
+    url: Minecraft,
+    name: 'Minecraft',
   },
   {
-    url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
-    name: '이것은 롤입니다.',
+    url: StardewValley,
+    name: 'Stardew Valley',
+  },
+  {
+    url: ValheimGuide,
+    name: 'Valheim guide',
   },
 ];
 

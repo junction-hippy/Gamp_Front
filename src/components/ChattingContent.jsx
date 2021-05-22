@@ -8,6 +8,8 @@ import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 import MicIcon from '@material-ui/icons/Mic';
 import MicOffIcon from '@material-ui/icons/MicOff';
+import circleDot from '../assets/images/circle_dot.png';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const Container = styled.div`
   background-color: #171b1f;
@@ -43,6 +45,9 @@ const FinishButton = styled.div`
   text-align: center;
   font-size: 16px;
   line-height: 32px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 const UserContainer = styled.div`
   position: relative;
@@ -68,14 +73,12 @@ const NickName = styled.div`
   margin-top: 10px;
   height: 20px;
 `;
-const CircleDot = styled.div`
+const CircleDot = styled.img`
   position: absolute;
   left: 90px;
   top: 80px;
   width: 484px;
   height: 484px;
-  border: 2px dashed #595959;
-  border-radius: 242px;
   z-index: 5;
 `;
 const UserCounter = styled.div`
@@ -216,7 +219,7 @@ function ChattingContent({ onClickFinish, userList }) {
           </StyledHeader>
           <UserContainer>
             {userList.map((item, idx) => getCard(item, idx, position[idx]))}
-            <CircleDot />
+            <CircleDot src={circleDot} alt="circle dot" />
           </UserContainer>
           <div className={classes.soundContainer}>
             <div className="slider">

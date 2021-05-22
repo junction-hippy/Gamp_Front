@@ -19,13 +19,16 @@ import gampLogo from '../assets/images/gamp_logo.png';
 
 const StyledSubject = styled.div`
   display: inline-block;
-  line-height: 79px;
   margin-left: 24px;
 `;
 const StyledImg = styled.img`
   width: 80px;
   height: 80px;
   float: left;
+`;
+const StyledName = styled.div`
+  position: absolute;
+  top: 31px;
 `;
 const StylyedListHeader = styled.div`
   height: 240px;
@@ -39,7 +42,7 @@ const StyledHeaderContent = styled.div`
   font-size: 32px;
 `;
 const StyledContainer = styled.div`
-  background-color: ${palette.bg[1]};
+  background-color: ${palette.bg[5]};
   height: 780px;
   font-family: Helvetica;
 `;
@@ -54,6 +57,19 @@ const StyledGridContainer = styled.div`
   align-items: center;
   background-color: ${palette.bg[3]};
   border-radius: 30px;
+
+  &:hover {
+    div.name {
+      transition-property: top;
+      transition-duration: 1s;
+      top: 0px;
+    }
+    div.button {
+      transition-property: opacity;
+      transition-duration: 1s;
+      opacity: 1;
+    }
+  }
 `;
 const StyledCotent = styled.div`
   position: relative;
@@ -62,6 +78,17 @@ const StyledCotent = styled.div`
   left: 30px;
   margin: auto 0px;
   color: white;
+`;
+const StyledSelectButton = styled.div`
+  position: absolute;
+  top: 51px;
+  width: 90px;
+  height: 32px;
+  background-color: ${palette.red};
+  border-radius: 20px;
+  text-align: center;
+  line-height: 32px;
+  opacity: 0;
 `;
 const NotFound = styled.div`
   position: relative;
@@ -121,22 +148,8 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '43px',
   },
-  searchLabel: {
-    color: `${palette.main_gray}`,
-    fontSize: '14px',
-    '&.Mui-focused': {
-      color: 'rgba(255, 255, 255, 0.8)',
-    },
-    left: '-10px',
-  },
   searchInput: {
-    '&:before': {
-      borderBottom: '1px solid rgba(255, 255, 255, 0.8)',
-    },
-
-    '&:after': {
-      borderBottom: '1px solid rgba(255, 255, 255, 0.8)',
-    },
+    borderBottom: '1px solid rgba(255, 255, 255, 0.8)',
   },
   searchIcon: {
     color: 'white',
@@ -163,7 +176,10 @@ const getItem = (item, idx, selectGame, classes) => {
       <StyledGridContainer>
         <StyledCotent>
           <StyledImg src={item.url} alt={`gameImage-${idx}`} />
-          <StyledSubject>{item.name}</StyledSubject>
+          <StyledSubject>
+            <StyledName className="name">{item.name}</StyledName>
+            <StyledSelectButton className="button">Select</StyledSelectButton>
+          </StyledSubject>
         </StyledCotent>
       </StyledGridContainer>
     </Grid>
@@ -206,13 +222,12 @@ function SelectGame({
         <div className="App-body">
           <form onSubmit={onSearchGame}>
             <FormControl className={classes.searchForm}>
-              <InputLabel htmlFor="search-game" className={classes.searchLabel}>
-                What game are you looking for?
-              </InputLabel>
               <Input
                 id="search-game"
+                placeholder=" What game are you looking for?"
                 value={searchWord}
                 onChange={onChangeSearch}
+                disableUnderline={true}
                 className={classes.searchInput}
                 style={{ color: 'white' }}
                 endAdornment={

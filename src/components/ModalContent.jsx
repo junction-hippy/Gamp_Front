@@ -9,6 +9,7 @@ import {
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import palette from '../lib/styles/palette';
+import ClearIcon from '@material-ui/icons/Clear';
 
 const useStyles = makeStyles((theme) => ({
   loading: {
@@ -39,22 +40,8 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '43px',
   },
-  searchLabel: {
-    color: `${palette.main_gray}`,
-    fontSize: '14px',
-    '&.Mui-focused': {
-      color: 'rgba(255, 255, 255, 0.8)',
-    },
-    left: '-10px',
-  },
   searchInput: {
-    '&:before': {
-      borderBottom: '1px solid rgba(255, 255, 255, 0.8)',
-    },
-
-    '&:after': {
-      borderBottom: '1px solid rgba(255, 255, 255, 0.8)',
-    },
+    borderBottom: '1px solid rgba(255, 255, 255, 0.8)',
   },
 }));
 
@@ -132,7 +119,9 @@ function ModalContent({
           <StyledSubject>{selectedGame.name}</StyledSubject>
         </Grid>
         <Grid item xs={1}>
-          <StyledDiv onClick={cancelMatching}>X</StyledDiv>
+          <StyledDiv onClick={cancelMatching}>
+            <ClearIcon style={{ position: 'relative', top: '3px' }} />
+          </StyledDiv>
         </Grid>
       </Grid>
       <section>
@@ -146,17 +135,13 @@ function ModalContent({
           <>
             <form onSubmit={onSearchNickname}>
               <FormControl className={classes.searchForm}>
-                <InputLabel
-                  htmlFor="search-game"
-                  className={classes.searchLabel}
-                >
-                  What is your nickname?
-                </InputLabel>
                 <Input
                   id="search-game"
+                  placeholder="What is your nickname?"
                   value={searchWord}
                   onChange={onChangeSearch}
                   className={classes.searchInput}
+                  disableUnderline={true}
                   style={{ color: 'white' }}
                 />
               </FormControl>{' '}
