@@ -12,7 +12,7 @@ export const checkGame = async ({ nickname }) => {
   return response;
 };
 
-export const checkGameOn = async ({ userid, groupid }) => {
+export const connection = async ({ userid, groupid }) => {
   const response = await axios({
     method: 'post',
     url: 'https://gamp.dnatuna.fun/api/checkgame/connection',
@@ -39,6 +39,14 @@ export const patchUser = async ({ nickname, chimeId }) => {
 export const findUser = async ({ chimeId }) => {
   const response = await axios({
     method: 'get',
+    url: `https://gamp.dnatuna.fun/api/checkgame/${chimeId}`,
+  });
+  return response;
+};
+
+export const deleteUser = async ({ chimeId }) => {
+  const response = await axios({
+    method: 'delete',
     url: `https://gamp.dnatuna.fun/api/checkgame/${chimeId}`,
   });
   return response;

@@ -20,9 +20,6 @@ function App() {
       <Route path="/meeting">
         <Meeting chime={chime} />
       </Route>
-      <Route path="/test">
-        <Home chime={chime} />
-      </Route>
     </>
   );
 }

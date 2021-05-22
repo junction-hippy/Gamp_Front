@@ -177,7 +177,10 @@ class Meeting extends Component {
             saveSettings={this.saveSettings}
           />
         )}
-        <ChattingContainer chimeId={this.joinInfo.Attendee.AttendeeId} />
+        <ChattingContainer
+          chime={this.props.chime}
+          chimeId={this.joinInfo.Attendee.AttendeeId}
+        />
       </div>
     );
   };

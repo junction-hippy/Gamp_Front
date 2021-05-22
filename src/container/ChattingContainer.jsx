@@ -1,33 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ChattingContent from '../components/ChattingContent';
-import { getGame, patchUser } from '../modules/group';
+import {
+  connection,
+  deleteUser,
+  getGame,
+  initGame,
+  patchUser,
+} from '../modules/group';
 import { useInterval } from 'react-use';
+import { useHistory } from 'react-router';
 
-function ChattingContainer({ chimeId }) {
-  const { nickname, game } = useSelector((state) => state.group);
+function ChattingContainer({ chime, chimeId }) {
+  const { nickname, game, userList } = useSelector((state) => state.group);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
-    //받아오기, 몇번?
-    dispatch(patchUser({ nickname, chimeId }));
+    const { userid, groupid } = game;
+    dispatch(patchUser({ nickname, chimeId, userid, groupid }));
   }, [dispatch]);
 
   useInterval(() => {
-    dispatch(getGame({ nickname }));
+    const { userid, groupid } = game;
+    dispatch(connection({ userid, groupid }));
   }, 5000);
 
-  const onClickFinish = () => {
-    console.log('finish');
+  const onDisconnect = () => {
+    dispatch(deleteUser({ chimeId }));
+    dispatch(initGame());
+    chime.leaveRoom(true);
+    localStorage.removeItem(`chime[${game.groupid}]`);
+    history.push('/');
   };
 
   return (
     <ChattingContent
-      onClickFinish={onClickFinish}
+      onDisconnect={onDisconnect}
       userList={
-        game.groupNotNull.length !== 0
-          ? game.groupNotNull
-          : [{ img: game.img, nickname }]
+        userList.length !== 0 ? userList : [{ img: game.img, nickname }]
       }
     />
   );

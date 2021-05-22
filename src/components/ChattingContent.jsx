@@ -174,7 +174,7 @@ const position = [
   'left: 93px; top: 433px;',
   'left: 0px; top: 185px;',
 ];
-function ChattingContent({ onClickFinish, userList }) {
+function ChattingContent({ onDisconnect, userList }) {
   const classes = useStyles();
   const [sound, setSound] = useState(50);
   const [isMuted, setMuted] = useState(false);
@@ -213,7 +213,7 @@ function ChattingContent({ onClickFinish, userList }) {
                 </div>
               </UserCounter>
 
-              <FinishButton onClick={onClickFinish}> Finish</FinishButton>
+              <FinishButton onClick={onDisconnect}> Finish</FinishButton>
             </StyledHeaderContent>
           </StyledHeader>
           <UserContainer>
