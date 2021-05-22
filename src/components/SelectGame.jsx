@@ -211,9 +211,11 @@ function SelectGame({
         <StyledHeaderContent className="App-body">
           <img src={logoWhite} alt="GAMP" width="60px" />
           <br />
-          <img src={gampLogo} alt="GAMP" width="76px" /> is a service that game
-          players can communicate with voice calls <br />
-          when they play a game which doesn’t provide a voice chat service.
+          <img src={gampLogo} alt="GAMP" width="76px" /> is a service that
+          allows you to automatically voice chat with matched team members.{' '}
+          <br />
+          All you need to do is just select the game, write your nickname, and
+          enjoy it!
         </StyledHeaderContent>
       </StylyedListHeader>
 
