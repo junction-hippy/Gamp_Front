@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/junction_hippy_front/static/css/main.08bd058e.chunk.css",
-    "main.js": "/junction_hippy_front/static/js/main.153d12cd.chunk.js",
-    "main.js.map": "/junction_hippy_front/static/js/main.153d12cd.chunk.js.map",
+    "main.js": "/junction_hippy_front/static/js/main.1a12ca4d.chunk.js",
+    "main.js.map": "/junction_hippy_front/static/js/main.1a12ca4d.chunk.js.map",
     "runtime-main.js": "/junction_hippy_front/static/js/runtime-main.19f36a97.js",
     "runtime-main.js.map": "/junction_hippy_front/static/js/runtime-main.19f36a97.js.map",
-    "static/js/2.97ca0f57.chunk.js": "/junction_hippy_front/static/js/2.97ca0f57.chunk.js",
-    "static/js/2.97ca0f57.chunk.js.map": "/junction_hippy_front/static/js/2.97ca0f57.chunk.js.map",
+    "static/js/2.5e07b40d.chunk.js": "/junction_hippy_front/static/js/2.5e07b40d.chunk.js",
+    "static/js/2.5e07b40d.chunk.js.map": "/junction_hippy_front/static/js/2.5e07b40d.chunk.js.map",
     "index.html": "/junction_hippy_front/index.html",
     "static/css/main.08bd058e.chunk.css.map": "/junction_hippy_front/static/css/main.08bd058e.chunk.css.map",
-    "static/js/2.97ca0f57.chunk.js.LICENSE.txt": "/junction_hippy_front/static/js/2.97ca0f57.chunk.js.LICENSE.txt",
+    "static/js/2.5e07b40d.chunk.js.LICENSE.txt": "/junction_hippy_front/static/js/2.5e07b40d.chunk.js.LICENSE.txt",
     "static/media/index.css": "/junction_hippy_front/static/media/NotoSansKR-Regular.457762ea.otf"
   },
   "entrypoints": [
     "static/js/runtime-main.19f36a97.js",
-    "static/js/2.97ca0f57.chunk.js",
+    "static/js/2.5e07b40d.chunk.js",
     "static/css/main.08bd058e.chunk.css",
-    "static/js/main.153d12cd.chunk.js"
+    "static/js/main.1a12ca4d.chunk.js"
   ]
 }
