@@ -31,7 +31,7 @@ const temp = [
   },
 ];
 
-function SelectGameContainer() {
+function SelectGameContainer({ chime }) {
   const [gameList, setGameList] = useState([]);
   const [selectedGame, setSelectedGame] = useState();
   const [pageNum, setPageNum] = useState(1);
@@ -86,6 +86,7 @@ function SelectGameContainer() {
           isLoading={isLoading}
           cancelMatching={cancelMatching}
           matched={matched}
+          chime={chime}
         />
       </CustomModal>
     </div>
