@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.65)',
+    fontFamily: 'Helvetica',
   },
   modelPaper: {
     backgroundColor: palette.bg[2],

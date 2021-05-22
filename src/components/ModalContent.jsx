@@ -1,5 +1,4 @@
 import {
-  Divider,
   Grid,
   CircularProgress,
   makeStyles,
@@ -87,10 +86,12 @@ const StyledDiv = styled.div`
   border-color: white;
   border-radius: 15px;
 `;
-const SearchButton = styled.div`
-  float: right;
+const SearchUnderContainer = styled.div`
   position: relative;
   top: 70px;
+`;
+const SearchButton = styled.div`
+  float: right;
   width: 122px;
   height: 32px;
   text-align: center;
@@ -100,13 +101,18 @@ const SearchButton = styled.div`
   border-radius: 20px;
   cursor: pointer;
 `;
-
+const ErrMsg = styled.span`
+  font-family: Helvetica-italic;
+  font-style: italic;
+  color: ${palette.red};
+`;
 function ModalContent({
   setOpen,
   selectedGame,
   isLoading,
   cancelMatching,
   onSearchNickname,
+  errMsg,
 }) {
   const classes = useStyles();
   const [searchWord, setSearchWord] = useState();
@@ -155,9 +161,14 @@ function ModalContent({
                 />
               </FormControl>{' '}
             </form>
-            <SearchButton onClick={(e) => onSearchNickname(e, searchWord)}>
-              Let's Gamp!
-            </SearchButton>
+            <SearchUnderContainer>
+              {errMsg && (
+                <ErrMsg>That nickname does not exist. Try Again?</ErrMsg>
+              )}
+              <SearchButton onClick={(e) => onSearchNickname(e, searchWord)}>
+                Let's Gamp!
+              </SearchButton>
+            </SearchUnderContainer>
           </>
         )}
       </section>

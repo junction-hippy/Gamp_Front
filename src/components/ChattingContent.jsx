@@ -13,6 +13,7 @@ const Container = styled.div`
   background-color: #171b1f;
   color: white;
   height: 1020px;
+  font-family: Helvetica;
 `;
 const Gradient = styled.div`
   color: white;
@@ -47,6 +48,7 @@ const UserContainer = styled.div`
   position: relative;
   width: 664px;
   margin: 0px auto;
+  font-family: NotoSansKR;
 `;
 const Card = styled.div`
   position: absolute;

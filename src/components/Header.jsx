@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import palette from '../lib/styles/palette';
+import logo from '../assets/images/gamp_logo.png';
 
 const Container = styled.div`
   background-color: ${palette.bg[2]};
@@ -16,7 +17,9 @@ function Header() {
   return (
     <Container>
       {' '}
-      <Content className="App-body">LOGO</Content>
+      <Content className="App-body">
+        <img src={logo} alt="GAMP" width="70px" />
+      </Content>
     </Container>
   );
 }

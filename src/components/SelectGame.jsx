@@ -14,6 +14,8 @@ import palette from '../lib/styles/palette';
 import SearchIcon from '@material-ui/icons/Search';
 import ClearIcon from '@material-ui/icons/Clear';
 import { useState } from 'react';
+import logoWhite from '../assets/images/logo_white.png';
+import gampLogo from '../assets/images/gamp_logo.png';
 
 const StyledSubject = styled.div`
   display: inline-block;
@@ -28,16 +30,18 @@ const StyledImg = styled.img`
 const StylyedListHeader = styled.div`
   height: 240px;
   background-color: ${palette.bg[2]};
-  color: ${palette.red};
+  color: #cccccc;
+  font-family: DIN Alternate;
 `;
 const StyledHeaderContent = styled.div`
   position: relative;
-  top: 104px;
+  top: 44px;
   font-size: 32px;
 `;
 const StyledContainer = styled.div`
   background-color: ${palette.bg[1]};
   height: 780px;
+  font-family: Helvetica;
 `;
 const StyledItemContainer = styled.div`
   position: relative;
@@ -60,12 +64,32 @@ const StyledCotent = styled.div`
   color: white;
 `;
 const NotFound = styled.div`
+  position: relative;
+  top: 94px;
   width: 283px;
   height: 32px;
   font-size: 24px;
   line-height: 32px;
-  color: white;
+  color: ${palette.red};
   margin: 0px auto;
+`;
+const NotFoundBackButton = styled.div`
+  position: relative;
+  top: 114px;
+
+  width: 90px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 20px;
+  background-color: ${palette.red};
+
+  color: ${palette.white};
+  margin: 0px auto;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -88,6 +112,7 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       color: 'white',
       filter: 'drop-shadow(0px 0px 100px #2E1D1A)',
+      cursor: 'pointer',
     },
   },
   searchForm: {
@@ -169,8 +194,10 @@ function SelectGame({
     <div>
       <StylyedListHeader>
         <StyledHeaderContent className="App-body">
-          It is a service that game players can communicate with voice calls{' '}
+          <img src={logoWhite} alt="GAMP" width="60px" />
           <br />
+          <img src={gampLogo} alt="GAMP" width="76px" /> is a service that game
+          players can communicate with voice calls <br />
           when they play a game which doesn’t provide a voice chat service.
         </StyledHeaderContent>
       </StylyedListHeader>
@@ -221,7 +248,17 @@ function SelectGame({
                   .map((item, idx) => getItem(item, idx, selectGame, classes))}
               </Grid>
             ) : (
-              <NotFound>Sorry, No Results Found :(</NotFound>
+              <>
+                <NotFound>Sorry, No Results Found :(</NotFound>
+                <NotFoundBackButton
+                  onClick={() => {
+                    setSearchWord('');
+                    onClear();
+                  }}
+                >
+                  Back
+                </NotFoundBackButton>
+              </>
             )}
           </StyledItemContainer>
           {gameList.length !== 0 && (

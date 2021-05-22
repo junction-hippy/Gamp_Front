@@ -39,7 +39,7 @@ function SelectGameContainer() {
   const [isLoading, setIsLoading] = useState(false);
   const [searched, setSearched] = useState(false);
   const [result, setResult] = useState([]);
-
+  const [errMsg, setErrMsg] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -71,6 +71,7 @@ function SelectGameContainer() {
   };
   const onSearchNickname = (e, word) => {
     e.preventDefault();
+    setErrMsg(false);
     //검색
     let search;
     if (word) {
@@ -80,6 +81,8 @@ function SelectGameContainer() {
     }
     if (search === '채팅') {
       history.push('/chat');
+    } else if (search === '에러') {
+      setErrMsg(true);
     } else {
       setIsLoading(true);
     }
@@ -87,6 +90,7 @@ function SelectGameContainer() {
   const onClear = () => {
     setSearched(false);
     setResult([]);
+    setErrMsg(false);
   };
 
   return (
@@ -109,6 +113,7 @@ function SelectGameContainer() {
           isLoading={isLoading}
           cancelMatching={cancelMatching}
           onSearchNickname={onSearchNickname}
+          errMsg={errMsg}
         />
       </CustomModal>
     </div>
