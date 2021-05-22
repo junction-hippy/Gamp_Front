@@ -5,7 +5,7 @@ import palette from '../lib/styles/palette';
 const Container = styled.div`
   background-color: ${palette.bg[1]};
   color: white;
-  height: 300px;
+  height: 100vh;
 `;
 function ChattingContent() {
   return (

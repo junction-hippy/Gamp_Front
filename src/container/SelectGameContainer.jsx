@@ -5,29 +5,28 @@ import { useHistory } from 'react-router';
 import CustomModal from '../components/CustomModal';
 import ModalContent from '../components/ModalContent';
 import SelectGame from '../components/SelectGame';
-import SelectGamePagination from '../components/SelectGamePagination';
 import { getGameList } from '../lib/api/gameList';
 
 const temp = [
   {
-    url: 'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
-    name: '게임이름',
+    url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
+    name: '이것은 롤입니다.',
   },
   {
-    url: 'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
-    name: '게임이름',
+    url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
+    name: '이것은 롤입니다.',
   },
   {
-    url: 'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
-    name: '게임이름',
+    url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
+    name: '이것은 롤입니다.',
   },
   {
-    url: 'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
-    name: '게임이름',
+    url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
+    name: '이것은 롤입니다.',
   },
   {
-    url: 'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
-    name: '게임이름',
+    url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
+    name: '이것은 롤입니다.',
   },
 ];
 
@@ -70,12 +69,22 @@ function SelectGameContainer() {
     history.push('/chat');
   };
 
+  const onSearchGame = (e) => {
+    //검색 기능
+    e.preventDefault();
+    console.log('검색');
+    setOpen(true);
+  };
+
   return (
-    <div className="App-body">
-      <SelectGame gameList={gameList} selectGame={selectGame} page={page} />
-      <SelectGamePagination
+    <div>
+      <SelectGame
+        gameList={gameList}
+        selectGame={selectGame}
+        page={page}
         pageNum={pageNum}
         onChangePage={(e, page) => setPage(page)}
+        onSearchGame={onSearchGame}
       />
       <CustomModal open={open} setOpen={setOpen}>
         {' '}

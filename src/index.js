@@ -23,7 +23,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <HelmetProvider>
-        <App />
+        <App className="body" />
       </HelmetProvider>
     </BrowserRouter>
   </Provider>,
