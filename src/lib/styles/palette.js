@@ -20,6 +20,8 @@ const palette = {
   black: '#141A26',
   navy: '#394159',
   bg: ['#091945', '#241D39', '#21272D', '#1C2126'],
+  red: '#CC5029',
+  main_gray: '#575D63',
   main_point: [
     '#4054D6',
     '#4677F1',

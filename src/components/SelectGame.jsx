@@ -8,9 +8,11 @@ import {
   InputLabel,
   makeStyles,
   Pagination,
+  PaginationItem,
 } from '@material-ui/core';
 import palette from '../lib/styles/palette';
 import SearchIcon from '@material-ui/icons/Search';
+import ClearIcon from '@material-ui/icons/Clear';
 import { useState } from 'react';
 
 const StyledSubject = styled.div`
@@ -26,7 +28,7 @@ const StyledImg = styled.img`
 const StylyedListHeader = styled.div`
   height: 240px;
   background-color: ${palette.bg[2]};
-  color: ${palette.main_point[6]};
+  color: ${palette.red};
 `;
 const StyledHeaderContent = styled.div`
   position: relative;
@@ -57,6 +59,14 @@ const StyledCotent = styled.div`
   margin: auto 0px;
   color: white;
 `;
+const NotFound = styled.div`
+  width: 283px;
+  height: 32px;
+  font-size: 24px;
+  line-height: 32px;
+  color: white;
+  margin: 0px auto;
+`;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,7 +80,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   align: {
-    maxWidth: `${38 * 9}px`,
     margin: '0px auto',
   },
   grid: {
@@ -78,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '10px 0px',
     '&:hover': {
       color: 'white',
+      filter: 'drop-shadow(0px 0px 100px #2E1D1A)',
     },
   },
   searchForm: {
@@ -87,8 +97,11 @@ const useStyles = makeStyles((theme) => ({
     height: '43px',
   },
   searchLabel: {
-    color: 'white !important',
+    color: `${palette.main_gray}`,
     fontSize: '14px',
+    '&.Mui-focused': {
+      color: 'rgba(255, 255, 255, 0.8)',
+    },
   },
   searchInput: {
     '&:before': {
@@ -101,6 +114,14 @@ const useStyles = makeStyles((theme) => ({
   },
   searchIcon: {
     color: 'white',
+  },
+  pagination: {
+    '& li': {
+      width: '30px',
+    },
+    '& button.Mui-selected': {
+      backgroundColor: palette.red,
+    },
   },
 }));
 
@@ -115,7 +136,7 @@ const getItem = (item, idx, selectGame, classes) => {
     >
       <StyledGridContainer>
         <StyledCotent>
-          <StyledImg src={item.url} alt={`gameImage-${idx}`} height="auto" />
+          <StyledImg src={item.url} alt={`gameImage-${idx}`} />
           <StyledSubject>{item.name}</StyledSubject>
         </StyledCotent>
       </StyledGridContainer>
@@ -130,10 +151,18 @@ function SelectGame({
   pageNum,
   onChangePage,
   onSearchGame,
+  searched,
+  onClear,
 }) {
   const classes = useStyles();
   const [searchWord, setSearchWord] = useState();
-  console.log(gameList);
+
+  const onChangeSearch = (e) => {
+    setSearchWord(e.target.value);
+    if (!e.target.value) {
+      onClear();
+    }
+  };
 
   return (
     <div>
@@ -147,49 +176,71 @@ function SelectGame({
 
       <StyledContainer>
         <div className="App-body">
-          <FormControl onSubmit={onSearchGame} className={classes.searchForm}>
-            <InputLabel htmlFor="search-game" className={classes.searchLabel}>
-              What game are you looking for?
-            </InputLabel>
-            <Input
-              id="search-game"
-              value={searchWord}
-              onChange={(e) => setSearchWord(e.target.value)}
-              className={classes.searchInput}
-              style={{ color: 'white' }}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    onClick={onSearchGame}
-                    className={classes.searchIcon}
-                  >
-                    <SearchIcon />
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </FormControl>{' '}
-          <StyledItemContainer>
-            <Grid container spacing={1}>
-              {gameList
-                .slice((page - 1) * 6, page * 6)
-                .map((item, idx) => getItem(item, idx, selectGame, classes))}
-            </Grid>
-          </StyledItemContainer>
-          <div className={classes.root}>
-            <div
-              className={classes.align}
-              style={{ width: `${38 * (pageNum + 4)}px` }}
-            >
-              <Pagination
-                showFirstButton
-                showLastButton
-                count={pageNum}
-                shape="rounded"
-                onChange={onChangePage}
+          <form onSubmit={onSearchGame}>
+            <FormControl className={classes.searchForm}>
+              <InputLabel htmlFor="search-game" className={classes.searchLabel}>
+                What game are you looking for?
+              </InputLabel>
+              <Input
+                id="search-game"
+                value={searchWord}
+                onChange={onChangeSearch}
+                className={classes.searchInput}
+                style={{ color: 'white' }}
+                endAdornment={
+                  <InputAdornment position="end">
+                    {searched ? (
+                      <>
+                        <IconButton
+                          onClick={() => {
+                            onClear();
+                            setSearchWord('');
+                          }}
+                          className={classes.searchIcon}
+                        >
+                          <ClearIcon />
+                        </IconButton>
+                      </>
+                    ) : (
+                      <IconButton type="submit" className={classes.searchIcon}>
+                        <SearchIcon />
+                      </IconButton>
+                    )}
+                  </InputAdornment>
+                }
               />
+            </FormControl>{' '}
+          </form>
+          <StyledItemContainer>
+            {' '}
+            {gameList.length !== 0 ? (
+              <Grid container spacing={1}>
+                {gameList
+                  .slice((page - 1) * 6, page * 6)
+                  .map((item, idx) => getItem(item, idx, selectGame, classes))}
+              </Grid>
+            ) : (
+              <NotFound>Sorry, No Results Found :(</NotFound>
+            )}
+          </StyledItemContainer>
+          {gameList.length !== 0 && (
+            <div className={classes.root}>
+              <div
+                className={classes.align}
+                style={{ width: `${30 * (pageNum + 4)}px` }}
+              >
+                <Pagination
+                  showFirstButton
+                  showLastButton
+                  count={pageNum}
+                  onChange={onChangePage}
+                  className={classes.pagination}
+                >
+                  <PaginationItem type="first" />
+                </Pagination>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </StyledContainer>
     </div>

@@ -10,7 +10,7 @@ const Container = styled.div`
 
 const Content = styled.div`
   line-height: 60px;
-  color: ${palette.main_point[6]};
+  color: ${palette.red};
 `;
 function Header() {
   return (

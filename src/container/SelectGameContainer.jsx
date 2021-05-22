@@ -37,6 +37,8 @@ function SelectGameContainer() {
   const [page, setPage] = useState(1);
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [searched, setSearched] = useState(false);
+  const [result, setResult] = useState([]);
 
   const history = useHistory();
 
@@ -69,22 +71,31 @@ function SelectGameContainer() {
     history.push('/chat');
   };
 
-  const onSearchGame = (e) => {
+  const onSearchGame = (e, word) => {
     //검색 기능
     e.preventDefault();
-    console.log('검색');
-    setOpen(true);
+    setSearched(true);
+    setResult(
+      gameList.filter((item) => item.name.includes(e.target[0].defaultValue)),
+    );
+  };
+
+  const onClear = () => {
+    setSearched(false);
+    setResult([]);
   };
 
   return (
     <div>
       <SelectGame
-        gameList={gameList}
+        gameList={searched ? result : gameList}
         selectGame={selectGame}
         page={page}
         pageNum={pageNum}
         onChangePage={(e, page) => setPage(page)}
         onSearchGame={onSearchGame}
+        searched={searched}
+        onClear={onClear}
       />
       <CustomModal open={open} setOpen={setOpen}>
         {' '}
