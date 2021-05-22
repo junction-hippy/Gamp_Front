@@ -2,7 +2,6 @@
   "name": "junction_hippy_front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://junction-hippy.github.io/junction_hippy_front/",
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
