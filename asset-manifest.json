@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "https://junction-hippy.github.io/junction_hippy_front/static/css/main.7eb7936d.chunk.css",
-    "main.js": "https://junction-hippy.github.io/junction_hippy_front/static/js/main.66cb3fee.chunk.js",
-    "main.js.map": "https://junction-hippy.github.io/junction_hippy_front/static/js/main.66cb3fee.chunk.js.map",
-    "runtime-main.js": "https://junction-hippy.github.io/junction_hippy_front/static/js/runtime-main.38b92b28.js",
-    "runtime-main.js.map": "https://junction-hippy.github.io/junction_hippy_front/static/js/runtime-main.38b92b28.js.map",
-    "static/js/2.007aa8d9.chunk.js": "https://junction-hippy.github.io/junction_hippy_front/static/js/2.007aa8d9.chunk.js",
-    "static/js/2.007aa8d9.chunk.js.map": "https://junction-hippy.github.io/junction_hippy_front/static/js/2.007aa8d9.chunk.js.map",
-    "index.html": "https://junction-hippy.github.io/junction_hippy_front/index.html",
-    "static/css/main.7eb7936d.chunk.css.map": "https://junction-hippy.github.io/junction_hippy_front/static/css/main.7eb7936d.chunk.css.map",
-    "static/js/2.007aa8d9.chunk.js.LICENSE.txt": "https://junction-hippy.github.io/junction_hippy_front/static/js/2.007aa8d9.chunk.js.LICENSE.txt",
-    "static/media/index.css": "https://junction-hippy.github.io/junction_hippy_front/static/media/NotoSansKR-Regular.457762ea.otf"
+    "main.css": "/junction_hippy_front/static/css/main.08bd058e.chunk.css",
+    "main.js": "/junction_hippy_front/static/js/main.b672fffa.chunk.js",
+    "main.js.map": "/junction_hippy_front/static/js/main.b672fffa.chunk.js.map",
+    "runtime-main.js": "/junction_hippy_front/static/js/runtime-main.19f36a97.js",
+    "runtime-main.js.map": "/junction_hippy_front/static/js/runtime-main.19f36a97.js.map",
+    "static/js/2.8dbdf9cd.chunk.js": "/junction_hippy_front/static/js/2.8dbdf9cd.chunk.js",
+    "static/js/2.8dbdf9cd.chunk.js.map": "/junction_hippy_front/static/js/2.8dbdf9cd.chunk.js.map",
+    "index.html": "/junction_hippy_front/index.html",
+    "static/css/main.08bd058e.chunk.css.map": "/junction_hippy_front/static/css/main.08bd058e.chunk.css.map",
+    "static/js/2.8dbdf9cd.chunk.js.LICENSE.txt": "/junction_hippy_front/static/js/2.8dbdf9cd.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/junction_hippy_front/static/media/NotoSansKR-Regular.457762ea.otf"
   },
   "entrypoints": [
-    "static/js/runtime-main.38b92b28.js",
-    "static/js/2.007aa8d9.chunk.js",
-    "static/css/main.7eb7936d.chunk.css",
-    "static/js/main.66cb3fee.chunk.js"
+    "static/js/runtime-main.19f36a97.js",
+    "static/js/2.8dbdf9cd.chunk.js",
+    "static/css/main.08bd058e.chunk.css",
+    "static/js/main.b672fffa.chunk.js"
   ]
 }
