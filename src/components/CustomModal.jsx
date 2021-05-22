@@ -1,19 +1,23 @@
 import React from 'react';
 import { makeStyles, Modal } from '@material-ui/core';
+import palette from '../lib/styles/palette';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.65)',
+    fontFamily: 'Helvetica',
   },
   modelPaper: {
-    backgroundColor: 'white',
-    width: '500px',
-    height: '300px',
+    backgroundColor: palette.bg[2],
+    width: '794px',
+    height: '312px',
     boxShadow: theme.shadows[2],
-    padding: theme.spacing(2, 4, 3),
     zIndex: '2000',
+    filter: 'drop-shadow(0px 0px 100px rgba(46, 29, 26, 0.7))',
+    borderRadius: '30px',
   },
 }));
 

@@ -1,5 +1,6 @@
 body {
   margin: auto;
+  height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +11,22 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+  font-family: 'DIN Alternate';
+  src: url('assets/fonts/DINAlternate-Bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url('assets/fonts/Helvetica.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Helvetica-italic';
+  src: url('assets/fonts/Helvetica-italic.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url('assets/fonts/NotoSansKR-Regular.otf') format('otf');
 }
