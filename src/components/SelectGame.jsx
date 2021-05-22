@@ -5,7 +5,6 @@ import {
   IconButton,
   Input,
   InputAdornment,
-  InputLabel,
   makeStyles,
   Pagination,
   PaginationItem,

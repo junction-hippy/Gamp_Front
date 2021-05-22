@@ -5,7 +5,7 @@ export const CHIME_ROOM_API =
   'https://c6gxk541u5.execute-api.ap-northeast-2.amazonaws.com/Prod/';
 
 // Chime-SDK allows up to 16 attendee videos
-export const CHIME_ROOM_MAX_ATTENDEE = 16;
+export const CHIME_ROOM_MAX_ATTENDEE = 5;
 
 // Default video stream to play inside the video player
 export const DEFAULT_VIDEO_STREAM =

@@ -9,7 +9,6 @@ import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 import MicIcon from '@material-ui/icons/Mic';
 import MicOffIcon from '@material-ui/icons/MicOff';
 import circleDot from '../assets/images/circle_dot.png';
-import { Player } from '@lottiefiles/react-lottie-player';
 
 const Container = styled.div`
   background-color: #171b1f;
@@ -160,7 +159,6 @@ const useStyles = makeStyles(() => ({
  */
 
 const getCard = (item, idx, position) => {
-  console.log(item);
   return (
     <Card position={position}>
       <CardImage src={item.img} alt="error" />

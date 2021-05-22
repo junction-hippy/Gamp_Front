@@ -7,7 +7,6 @@ import CustomModal from '../components/CustomModal';
 import ModalContent from '../components/ModalContent';
 import SelectGame from '../components/SelectGame';
 import { getGame, setNickname } from '../modules/group';
-import { getGameList } from '../lib/api/gameList';
 import AmongUS from '../assets/images/AmongUs.webp';
 import LostArk from '../assets/images/Lost Ark.jpeg';
 import Minecraft from '../assets/images/Minecraft.webp';
@@ -98,7 +97,7 @@ function SelectGameContainer({ chime }) {
   };
   useEffect(() => {
     if (nickname !== '') {
-      dispatch(getGame(nickname));
+      dispatch(getGame({ nickname }));
     }
   }, [nickname, dispatch]);
 
@@ -111,6 +110,10 @@ function SelectGameContainer({ chime }) {
   useEffect(() => {
     console.log(game);
     if (game) {
+      if (game.isGaming === false) {
+        onClear();
+        return;
+      }
       const data = {
         username: nickname,
         title: game.groupid,

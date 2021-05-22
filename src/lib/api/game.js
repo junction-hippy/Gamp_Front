@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const checkGame = async (nickname) => {
+export const checkGame = async ({ nickname }) => {
   console.log(nickname);
   const response = await axios({
     method: 'post',

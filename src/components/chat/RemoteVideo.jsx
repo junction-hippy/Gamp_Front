@@ -2,44 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class RemoteVideo extends Component {
-  state = {
-    showMeta: true,
-  };
-
-  componentDidMount() {
-    // Hide meta info after 2 seconds
-    if (!this.props.muted) {
-      setTimeout(() => {
-        this.setState({
-          showMeta: false,
-        });
-      }, 2000);
-    }
-  }
-
-  handleMouseEnter(e) {
-    this.setState({
-      showMeta: true,
-    });
-  }
-
-  handleMouseLeave(e) {
-    this.setState({
-      showMeta: false,
-    });
-  }
-
   render() {
-    const { attendeeId, videoEnabled, name, muted, videoElement } = this.props;
-    // always show metadata when participant is muted or cam is off
-    const showMeta = this.state.showMeta || muted || !videoEnabled;
-
-    const camClass = attendeeId ? '' : ' hidden';
-    const micMuteCls = muted
-      ? 'controls__btn--mic_on'
-      : 'controls__btn--mic_off';
-    const metaCls = showMeta ? '' : ' cam__meta--hide';
-    const videoId = `video_${attendeeId}`;
     return (
       <></>
       // <div
