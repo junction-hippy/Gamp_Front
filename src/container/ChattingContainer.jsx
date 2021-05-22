@@ -13,9 +13,9 @@ function ChattingContainer({ chimeId }) {
     dispatch(patchUser({ nickname, chimeId }));
   }, [dispatch]);
 
-  // useInterval(() => {
-  //   dispatch(getGame(nickname));
-  // }, 1500);
+  useInterval(() => {
+    dispatch(getGame({ nickname }));
+  }, 5000);
 
   const onClickFinish = () => {
     console.log('finish');
