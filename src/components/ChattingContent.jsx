@@ -10,6 +10,7 @@ import MicIcon from '@material-ui/icons/Mic';
 import MicOffIcon from '@material-ui/icons/MicOff';
 import circleDot from '../assets/images/circle_dot.png';
 import { Player } from '@lottiefiles/react-lottie-player';
+import fireVideo from '../assets/fireVideo.json';
 
 const Container = styled.div`
   background-color: #171b1f;
@@ -220,6 +221,25 @@ function ChattingContent({ onClickFinish, userList }) {
           <UserContainer>
             {userList.map((item, idx) => getCard(item, idx, position[idx]))}
             <CircleDot src={circleDot} alt="circle dot" />
+            <Player
+              src={fireVideo}
+              background="transparent"
+              speed="1"
+              style={{
+                position: 'absolute',
+                top: '230px',
+                left: '257px',
+                width: '150px',
+                height: '150px',
+                color: palette.red,
+                opacity: 0.2,
+                filter: 'blur(1px)',
+              }}
+              renderer="svg"
+              loop
+              controls
+              autoplay
+            ></Player>
           </UserContainer>
           <div className={classes.soundContainer}>
             <div className="slider">
