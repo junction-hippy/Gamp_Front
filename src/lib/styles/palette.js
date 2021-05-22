@@ -22,6 +22,7 @@ const palette = {
   bg: ['#091945', '#241D39', '#21272D', '#1C2126'],
   red: '#CC5029',
   main_gray: '#575D63',
+  white: '#f2f2f2',
   main_point: [
     '#4054D6',
     '#4677F1',

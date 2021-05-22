@@ -102,6 +102,7 @@ const useStyles = makeStyles((theme) => ({
     '&.Mui-focused': {
       color: 'rgba(255, 255, 255, 0.8)',
     },
+    left: '-10px',
   },
   searchInput: {
     '&:before': {

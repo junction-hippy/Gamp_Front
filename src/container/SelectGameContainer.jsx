@@ -56,19 +56,9 @@ function SelectGameContainer() {
     //적절한 작업 후
     setOpen(true);
   };
-
-  const onSubmitNickname = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-  };
-
   const cancelMatching = () => {
     setOpen(false);
     setIsLoading(false);
-  };
-
-  const matched = () => {
-    history.push('/chat');
   };
 
   const onSearchGame = (e, word) => {
@@ -79,7 +69,21 @@ function SelectGameContainer() {
       gameList.filter((item) => item.name.includes(e.target[0].defaultValue)),
     );
   };
-
+  const onSearchNickname = (e, word) => {
+    e.preventDefault();
+    //검색
+    let search;
+    if (word) {
+      search = word;
+    } else if (e.target[0]) {
+      search = e.target[0].defaultValue;
+    }
+    if (search === '채팅') {
+      history.push('/chat');
+    } else {
+      setIsLoading(true);
+    }
+  };
   const onClear = () => {
     setSearched(false);
     setResult([]);
@@ -102,10 +106,9 @@ function SelectGameContainer() {
         <ModalContent
           setOpen={setOpen}
           selectedGame={selectedGame}
-          onSubmitNickname={onSubmitNickname}
           isLoading={isLoading}
           cancelMatching={cancelMatching}
-          matched={matched}
+          onSearchNickname={onSearchNickname}
         />
       </CustomModal>
     </div>

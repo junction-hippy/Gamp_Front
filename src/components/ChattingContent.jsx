@@ -59,6 +59,7 @@ const Card = styled.div`
 const CardImage = styled.img`
   width: 180px;
   height: 180px;
+  border-radius: 100px;
 `;
 const NickName = styled.div`
   text-align: center;
