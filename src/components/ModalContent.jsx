@@ -154,7 +154,7 @@ function ModalContent({
                 </InputLabel>
                 <Input
                   id="search-game"
-                  value={searchWord}
+                  value={searchWord || ''}
                   onChange={onChangeSearch}
                   className={classes.searchInput}
                   style={{ color: 'white' }}

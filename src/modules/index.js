@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import loading from './loading';
 import { all } from 'redux-saga/effects';
-import data, { dataSaga } from './data';
+import group, { groupSaga } from './group';
 
-const rootReducer = combineReducers({ loading, data });
+const rootReducer = combineReducers({ loading, group });
 
 export function* rootSaga() {
-  yield all([dataSaga()]);
+  yield all([groupSaga()]);
 }
 
 export default rootReducer;

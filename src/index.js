@@ -23,7 +23,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <HelmetProvider>
-        <App className="body" />
+        <App />
       </HelmetProvider>
     </BrowserRouter>
   </Provider>,

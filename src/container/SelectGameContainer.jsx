@@ -1,16 +1,17 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import CustomModal from '../components/CustomModal';
 import ModalContent from '../components/ModalContent';
 import SelectGame from '../components/SelectGame';
-import { getGameList } from '../lib/api/gameList';
+import { getGame, setNickname } from '../modules/group';
 
-const temp = [
+const gameList = [
   {
     url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
-    name: '이것은 롤입니다.',
+    name: '롤',
   },
   {
     url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
@@ -31,7 +32,6 @@ const temp = [
 ];
 
 function SelectGameContainer({ chime }) {
-  const [gameList, setGameList] = useState([]);
   const [selectedGame, setSelectedGame] = useState();
   const [pageNum, setPageNum] = useState(1);
   const [page, setPage] = useState(1);
@@ -42,12 +42,11 @@ function SelectGameContainer({ chime }) {
   const [errMsg, setErrMsg] = useState(false);
   const history = useHistory();
 
-  useEffect(() => {
-    const response = getGameList();
+  const { nickname, game } = useSelector((state) => state.group);
+  const dispatch = useDispatch();
 
-    //setGameList(response.data);
-    setGameList(temp);
-    setPageNum(Math.floor(temp.length / 12 + 1));
+  useEffect(() => {
+    setPageNum(Math.floor(gameList.length / 12 + 1));
   }, []);
 
   const selectGame = (selectedGame) => {
@@ -73,25 +72,46 @@ function SelectGameContainer({ chime }) {
     e.preventDefault();
     setErrMsg(false);
     //검색
-    let search;
     if (word) {
-      search = word;
+      dispatch(setNickname(word));
     } else if (e.target[0]) {
-      search = e.target[0].defaultValue;
+      dispatch(setNickname(e.target[0].defaultValue));
     }
-    if (search === '채팅') {
+    if (nickname === '채팅') {
       history.push('/chat');
-    } else if (search === '에러') {
+    } else if (nickname === '에러') {
       setErrMsg(true);
     } else {
       setIsLoading(true);
+      console.log(nickname);
     }
   };
+  useEffect(() => {
+    if (nickname !== '') {
+      dispatch(getGame(nickname));
+    }
+  }, [nickname, dispatch]);
+
   const onClear = () => {
     setSearched(false);
     setResult([]);
     setErrMsg(false);
   };
+
+  useEffect(() => {
+    console.log(game);
+    if (game) {
+      const data = {
+        username: nickname,
+        title: game.groupid,
+        playbackURL:
+          'https://fcc3ddae59ed.us-west-2.playback.live-video.net/api/video/v1/us-west-2.893648527354.channel.DmumNckWFTqz.m3u8',
+        role: 'host',
+      };
+      sessionStorage.setItem(`chime[${game.groupid}]`, JSON.stringify(data));
+      history.push(`/meeting?room=${game.groupid}`);
+    }
+  }, [game, history, nickname]);
 
   return (
     <div>
@@ -119,5 +139,4 @@ function SelectGameContainer({ chime }) {
     </div>
   );
 }
-
 export default SelectGameContainer;
