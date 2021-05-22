@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ChattingContent from '../components/ChattingContent';
+import { patchUser } from '../modules/group';
 
 const temp = [
   {
@@ -24,11 +26,15 @@ const temp = [
   },
 ];
 
-function ChattingContainer() {
+function ChattingContainer({ chimeId }) {
   const [userList, setUserList] = useState([]);
+  const { nickname, game } = useSelector((state) => state.group);
+  const dispatch = useDispatch();
 
+  useEffect(() => {}, [game]);
   useEffect(() => {
     //받아오기, 몇번?
+    dispatch(patchUser({ nickname, chimeId }));
     setUserList(temp);
   }, []);
 
@@ -36,6 +42,11 @@ function ChattingContainer() {
     console.log('finish');
   };
 
-  return <ChattingContent onClickFinish={onClickFinish} userList={userList} />;
+  return (
+    <ChattingContent
+      onClickFinish={onClickFinish}
+      userList={game.groupNotNull}
+    />
+  );
 }
 export default ChattingContainer;

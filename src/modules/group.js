@@ -27,7 +27,6 @@ export function* groupSaga() {
 const initailState = {
   nickname: '',
   game: null,
-  userList: null,
   error: null,
 };
 

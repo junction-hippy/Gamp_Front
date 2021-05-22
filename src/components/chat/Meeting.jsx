@@ -8,6 +8,8 @@ import { MeetingSessionStatusCode } from 'amazon-chime-sdk-js';
 // Components
 import Settings from './Settings';
 import RemoteVideoGroup from './RemoteVideoGroup';
+import ChattingPage from '../../pages/ChattingPage';
+import ChattingContainer from '../../container/ChattingContainer';
 
 class Meeting extends Component {
   state = {
@@ -155,6 +157,7 @@ class Meeting extends Component {
     if (this.state.meetingStatus !== 'Success') {
       return;
     }
+    console.log(this.joinInfo);
 
     return (
       <div className="app-grid" onClick={this.handleClick}>
@@ -174,6 +177,7 @@ class Meeting extends Component {
             saveSettings={this.saveSettings}
           />
         )}
+        <ChattingContainer chimeId={this.joinInfo.Attendee.AttendeeId} />
       </div>
     );
   };

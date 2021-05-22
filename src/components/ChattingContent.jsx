@@ -157,10 +157,11 @@ const useStyles = makeStyles(() => ({
  */
 
 const getCard = (item, idx, position) => {
+  console.log(item);
   return (
     <Card position={position}>
-      <CardImage src={item.url} alt="error" />
-      <NickName>{item.name}</NickName>
+      <CardImage src={item.img} alt="error" />
+      <NickName>{item.nickname}</NickName>
     </Card>
   );
 };

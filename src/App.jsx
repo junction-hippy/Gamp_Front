@@ -17,10 +17,10 @@ function App() {
       <Header />
       <Route path="/" exact render={() => <SelectGamePage chime={chime} />} />
       <Route path="/chat" render={() => <ChattingPage chime={chime} />} />
-      <Route path={'/meeting'}>
+      <Route path="/meeting">
         <Meeting chime={chime} />
       </Route>
-      <Route path={'/test'}>
+      <Route path="/test">
         <Home chime={chime} />
       </Route>
     </>

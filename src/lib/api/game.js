@@ -4,7 +4,7 @@ export const checkGame = async (nickname) => {
   console.log(nickname);
   const response = await axios({
     method: 'post',
-    url: 'http://3.37.62.94/checkgame',
+    url: 'https://gamp.dnatuna.fun/api/checkgame',
     data: {
       nickname,
     },
@@ -15,7 +15,7 @@ export const checkGame = async (nickname) => {
 export const checkGameOn = async ({ userid, groupid }) => {
   const response = await axios({
     method: 'post',
-    url: 'http://3.37.62.94/checkgame/connection',
+    url: 'https://gamp.dnatuna.fun/api/checkgame/connection',
     data: {
       userid,
       groupid,
@@ -27,7 +27,7 @@ export const checkGameOn = async ({ userid, groupid }) => {
 export const patchUser = async ({ nickname, chimeId }) => {
   const response = await axios({
     method: 'patch',
-    url: 'http://3.37.62.94/checkgame/chime',
+    url: 'https://gamp.dnatuna.fun/api/checkgame/chime',
     data: {
       nickname,
       chimeId,
@@ -39,7 +39,7 @@ export const patchUser = async ({ nickname, chimeId }) => {
 export const findUser = async ({ chimeId }) => {
   const response = await axios({
     method: 'get',
-    url: `http://3.37.62.94/checkgame/${chimeId}`,
+    url: `https://gamp.dnatuna.fun/api/checkgame/${chimeId}`,
   });
   return response;
 };
