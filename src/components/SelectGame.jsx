@@ -24,6 +24,7 @@ const StyledImg = styled.img`
   width: 80px;
   height: 80px;
   float: left;
+  border-radius: 30px;
 `;
 const StyledName = styled.div`
   position: absolute;
@@ -38,7 +39,7 @@ const StylyedListHeader = styled.div`
 const StyledHeaderContent = styled.div`
   position: relative;
   top: 44px;
-  font-size: 32px;
+  font-size: 30px;
 `;
 const StyledContainer = styled.div`
   background-color: ${palette.bg[5]};
