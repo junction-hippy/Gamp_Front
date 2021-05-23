@@ -11,6 +11,29 @@ import {
 import { useInterval } from 'react-use';
 import { useHistory } from 'react-router';
 
+const temp = [
+  {
+    item: 'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
+    nickname: '',
+  },
+  {
+    item: 'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
+    nickname: '',
+  },
+  {
+    item: 'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
+    nickname: '',
+  },
+  {
+    item: 'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
+    nickname: '',
+  },
+  {
+    item: 'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
+    nickname: '',
+  },
+];
+
 function ChattingContainer({ chime, chimeId }) {
   const { nickname, game, userList } = useSelector((state) => state.group);
   const dispatch = useDispatch();
@@ -34,13 +57,36 @@ function ChattingContainer({ chime, chimeId }) {
     history.push('/');
   };
 
+  useEffect(() => {
+    if (game.isGaming === false) {
+      onDisconnect();
+    }
+    if (game.isGaming === undefined) {
+      onDisconnect();
+    }
+  }, [game]);
+
   return (
-    <ChattingContent
-      onDisconnect={onDisconnect}
-      userList={
-        userList.length !== 0 ? userList : [{ img: game.img, nickname }]
-      }
-    />
+    <div>
+      {userList ? (
+        <ChattingContent
+          onDisconnect={onDisconnect}
+          userList={
+            userList.length !== 0 ? userList : [{ img: game.img, nickname }]
+          }
+        />
+      ) : (
+        <ChattingContent
+          onDisconnect={onDisconnect}
+          userList={[
+            {
+              img: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
+              nickname,
+            },
+          ]}
+        />
+      )}
+    </div>
   );
 }
 export default ChattingContainer;

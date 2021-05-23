@@ -150,7 +150,6 @@ class RemoteVideoGroup extends Component {
       videoTileDidUpdate: this.videoTileDidUpdateCallback,
       videoTileWasRemoved: this.videoTileWasRemovedCallback,
     });
-    console.log(this.state.roster);
   }
 
   componentWillUnmount() {

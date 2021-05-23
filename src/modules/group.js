@@ -89,6 +89,7 @@ export default handleActions(
     }),
     [CONNECTION_SUCCESS]: (state, { payload: data }) => ({
       ...state,
+      game: { ...state.game, isGaming: data.isGaming },
       userList: data.groupNotNull,
     }),
     [CONNECTION_FAILURE]: (state, { payload: error }) => ({

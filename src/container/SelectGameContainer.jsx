@@ -16,7 +16,7 @@ import ValheimGuide from '../assets/images/Valheim guide.webp';
 const gameList = [
   {
     url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
-    name: '롤',
+    name: 'League of Legends',
   },
   {
     url: AmongUS,
@@ -60,7 +60,6 @@ function SelectGameContainer({ chime }) {
 
   const selectGame = (selectedGame) => {
     setSelectedGame(selectedGame);
-    console.log(selectedGame);
     //적절한 작업 후
     setOpen(true);
   };
@@ -92,7 +91,6 @@ function SelectGameContainer({ chime }) {
       setErrMsg(true);
     } else {
       setIsLoading(true);
-      console.log(nickname);
     }
   };
   useEffect(() => {
@@ -108,7 +106,6 @@ function SelectGameContainer({ chime }) {
   };
 
   useEffect(() => {
-    console.log(game);
     if (game) {
       if (game.isGaming === false) {
         onClear();

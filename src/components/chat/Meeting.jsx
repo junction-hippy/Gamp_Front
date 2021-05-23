@@ -6,9 +6,7 @@ import * as config from '../../config';
 import { MeetingSessionStatusCode } from 'amazon-chime-sdk-js';
 
 // Components
-import Settings from './Settings';
 import RemoteVideoGroup from './RemoteVideoGroup';
-import ChattingPage from '../../pages/ChattingPage';
 import ChattingContainer from '../../container/ChattingContainer';
 
 class Meeting extends Component {
@@ -154,33 +152,23 @@ class Meeting extends Component {
   };
 
   layout = () => {
-    if (this.state.meetingStatus !== 'Success') {
-      return;
-    }
-    console.log(this.joinInfo);
-
     return (
       <div className="app-grid" onClick={this.handleClick}>
-        <div className="main-stage">
-          <div className="cams pos-relative">
-            {/* <LocalVideo chime={this.props.chime} joinInfo={this.joinInfo} /> */}
+        {this.state.meetingStatus === 'Success' ? (
+          <div>
             <RemoteVideoGroup
               chime={this.props.chime}
               joinInfo={this.joinInfo}
             />
+
+            <ChattingContainer
+              chime={this.props.chime}
+              chimeId={this.joinInfo.Attendee.AttendeeId}
+            />
           </div>
-        </div>
-        {this.state.showSettings && (
-          <Settings
-            chime={this.props.chime}
-            joinInfo={this.joinInfo}
-            saveSettings={this.saveSettings}
-          />
+        ) : (
+          <ChattingContainer chime={this.props.chime} chimeId="loding" />
         )}
-        <ChattingContainer
-          chime={this.props.chime}
-          chimeId={this.joinInfo.Attendee.AttendeeId}
-        />
       </div>
     );
   };
