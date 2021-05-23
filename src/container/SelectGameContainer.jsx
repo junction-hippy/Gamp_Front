@@ -16,7 +16,7 @@ import ValheimGuide from '../assets/images/Valheim guide.webp';
 const gameList = [
   {
     url: 'https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo-1-1.png',
-    name: '롤',
+    name: 'League of Legend',
   },
   {
     url: AmongUS,
